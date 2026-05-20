@@ -1,18 +1,5 @@
 The code is for the work:
 
-```
-@article{jiang2018superpca,
-  title={SuperPCA: A Superpixelwise PCA Approach for Unsupervised Feature Extraction of Hyperspectral Imagery},
-  author={Jiang, Junjun and Ma, Jiayi and Chen, Chen and Wang, Zhongyuan and Cai, Zhihua and Wang, Lizhe},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  volume={56},
-  number={8},
-  pages={4581--4593},
-  year={2018},
-  publisher={IEEE}
-}
-```
-
 
 If you need another two datasets (PaviaU and Salinas), please feel free to contact me. Or you can download them from http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes
 
