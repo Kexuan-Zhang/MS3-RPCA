@@ -1,13 +1,4 @@
 function FA = element_mul(data3D, Res, mode)
-% Superpixel-guided Spectral Attention (Res-based version)
-%
-% 输入：
-%   data3D : H × W × D
-%   Res    : seg_im_class_forS3 输出结构
-%   mode   : 'minmax' or 'ratio'
-%
-% 输出：
-%   FA     : 加权后的数据 H × W × D
 
 [H, W, D] = size(data3D);
 N = H * W;
@@ -39,7 +30,7 @@ switch mode
         mu_mean = mean(mu, 1);
         A_sp = mu ./ (mu_mean + eps);
         
-        % 稳定压缩（关键）
+        % 稳定压缩
         A_sp = tanh(A_sp);
         
     otherwise

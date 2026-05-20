@@ -1,14 +1,14 @@
 clc;clear;close all
 addpath(genpath(cd));
 
-%% ================= Configuration =================
+%% Configuration
 PCA_dims = [30 30 30];
 trainnum_list = [3 5 7 9 11 13 15];
 iterNum = 10;
 
 database = 'Indian';
 
-%% ================= Load Dataset =================
+%% Load Dataset
 if strcmp(database,'Indian')
     load Indian_pines_corrected; load Indian_pines_gt; load Indian_pines_randp
     data3D = indian_pines_corrected;  label_gt = indian_pines_gt;
@@ -24,7 +24,7 @@ end
 data3D = data3D ./ max(data3D(:));
 [M,N,B] = size(data3D);
 
-%% ================= Step 1: Multi-Scale Local Feature Extraction =================
+%% Step 1: Multi-Scale Local Feature Extraction
 
 [dataDR1, local1] = extract_local_feature( ...
     data3D, [], PCA_dims(1), num_SuperPixels(1), k, alpha);
@@ -36,7 +36,7 @@ data3D = data3D ./ max(data3D(:));
     data3D, dataDR2, PCA_dims(3), num_SuperPixels(3), k, alpha);
 
 
-%% ================= Step 2: Multi-Scale Global Feature Extraction =================
+%% Step 2: Multi-Scale Global Feature Extraction
 data_global = cat(3, local1, local2, local3);
 
 % PCA
@@ -49,7 +49,7 @@ feat_global = reshape(feat_global, n, m, 30);
 % Normalization with Frobenius norm
 feat_global = normalize_fro(feat_global);
 
-%% ================= Step 3: Multi-Scale Feature Fuse =================
+%% Step 3: Multi-Scale Feature Fuse
 feat_fused = cat(3, feat_local, feat_global);
 
 % PCA
@@ -59,7 +59,7 @@ feat_fused = reshape(feat_fused,n*m,f);
 feat_final = feat_fused*P;
 feat_final = reshape(feat_final, n, m, 30);
 
-%% ================= Step 4: SVM Classification =================
+%% Step 4: SVM Classification
 
 all_results_mean = zeros(1,length(trainnum_list));
 all_results_std  = zeros(1,length(trainnum_list));
@@ -104,7 +104,7 @@ for tt = 1:length(trainnum_list)
         trainnum, all_results_mean(tt), all_results_std(tt));
 end
 
-%% ================= Report =================
+%% Report
 fprintf('\n========== Results ==========\n');
 fprintf('trainnum: ');
 fprintf('%d ', trainnum_list);
