@@ -40,11 +40,7 @@ data3D = data3D ./ max(data3D(:));
 data_global = cat(3, local1, local2, local3);
 
 % PCA
-[n,m,fL] = size(data_global);
-data_global = reshape(data_global, n*m, fL);
-[P] = Eigenface_f(data_global', 30);
-feat_global = data_global*P;
-feat_global = reshape(feat_global, n, m, 30);
+feat_global = applyPCAon3DMatrix(data_global,30);
 
 % Normalization with Frobenius norm
 feat_global = normalize_fro(feat_global);
@@ -53,11 +49,7 @@ feat_global = normalize_fro(feat_global);
 feat_fused = cat(3, feat_local, feat_global);
 
 % PCA
-[n,m,f]=size(feat_fused);
-feat_fused = reshape(feat_fused,n*m,f);
-[P] = Eigenface_f(feat_fused',30);
-feat_final = feat_fused*P;
-feat_final = reshape(feat_final, n, m, 30);
+feat_final = applyPCAon3DMatrix(feat_fused,30);
 
 %% Step 4: SVM Classification
 

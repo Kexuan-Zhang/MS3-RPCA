@@ -28,6 +28,6 @@ end
 dataDR = SuperPCA(data_cat, num_PC, labels);
 
 % --- Frobenius norm ---
-dataDR=normalize_fro(dataDR);
+dataDR = normalize_fro(dataDR);
 
 end

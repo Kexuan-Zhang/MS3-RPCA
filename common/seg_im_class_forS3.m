@@ -12,4 +12,3 @@ for i=1:Num
     Results.cor{1,i} = [m,n];       %i个超像素的所有像素位置，m和n都是一个列向量
     Results.Y{1,i} =Y_reshape(find(Gt==Class(i)),:);    %i个超像素的像素内容
 end
- 

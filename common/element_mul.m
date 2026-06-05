@@ -2,7 +2,7 @@ function FA = element_mul(data3D, Res, mode)
 
 [H, W, D] = size(data3D);
 N = H * W;
-Num = size(Res.Y, 2);   % 超像素数量
+Num = size(Res.Y, 2);   %超像素数量
 
 X = reshape(data3D, [], D);
 
@@ -29,11 +29,10 @@ switch mode
     case 'ratio'
         mu_mean = mean(mu, 1);
         A_sp = mu ./ (mu_mean + eps);
-        
-        % 稳定压缩
         A_sp = tanh(A_sp);
         
     otherwise
+        %不做任何处理的效果最好
         A_sp = mu ;
 end
 
