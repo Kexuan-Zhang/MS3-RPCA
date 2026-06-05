@@ -1,5 +1,5 @@
 # M3-PCA
-The code is for the work: Multi-scale Superpixelwise Spectral–Spatial PCA Model for Hyperspectral Image Feature Extraction
+The code is for the work: Multi-scale Superpixelwise Spectral–Spatial PCA Model for Hyperspectral Image Feature Extraction 
 
 ![framework](img/model.png)
 
