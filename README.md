@@ -1,9 +1,9 @@
-# M3-PCA
-The code is for the work: Multi-scale Superpixelwise Spectral–Spatial PCA Model for Hyperspectral Image Feature Extraction 
+# MS3-RPCA
+The code is for the work: Multi-scale Superpixelwise Spectral–Spatial Recursive PCA for Hyperspectral Image Feature Extraction
 
 ![framework](img/model.png)
 
-Run 'demo_MS3PCA.m' to reproduce the experimental results reported in the paper.
+Run 'demo_MS3RPCA.m' to reproduce the experimental results reported in the paper.
 
 All experiments were implemented and evaluated in MATLAB R2022b. 
 
